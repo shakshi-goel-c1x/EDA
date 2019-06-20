@@ -32,4 +32,11 @@ Different functions are used as follows:
   b) Range
   c) Interquartile Range
 
-Using the function describe, we can get all the above measure
+The function describe returns the above statistics for each of the variables.
+
+## Step 5 Finding the number of unique values for each variable
+The nunique function can be used on the dataset which returns the number of unique values per variable in the dataset
+
+## Data Cleaning
+Data cleaning is the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset and refers to identifying incomplete, incorrect, inaccurate or irrelevant parts of the data and then replacing, modifying, or deleting the dirty or coarse data.
+## Step 6 Checking for null values
