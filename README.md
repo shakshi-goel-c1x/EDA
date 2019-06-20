@@ -9,5 +9,10 @@ The assignment is to perform Exploratory Data Analysis on the datasets where dat
   6) Arrive at useful insights and conclusions
 
 
-##Step 1
-Importing the packages and reading the datasets
+## Step 1 Importing the packages
+Packages like pandas, numpy, matplotlib, seaborn are imported
+
+## Step 2 Reading the datasets
+Using the read_csv of the pandas library, the different datasets are read
+
+## Step 3 Basic Look at the dataset
