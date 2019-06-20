@@ -119,3 +119,72 @@ plt.ylabel('No. of users',fontsize=10)
 f, ax = plt.subplots(figsize=(6, 6))
 corr = impression.drop(['AdvPixelId','AccountID'],axis=1).corr()
 sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values,cmap='gist_heat')
+
+# VISUALISATION 4
+# selecting seen and ts column from pixel_shopclues log to find how many new users have been discovered
+d = pixel_shopclues[['seen', 'ts']]
+print(d)
+d = pd.DataFrame(d)
+#Converting unix time stamp into readable date.
+from datetime import datetime
+y = pixel_shopclues.iloc[:,22]
+y = list(y)
+for i in range(len(y)):
+    y[i] /=1000
+    # if you encounter a "year is out of range" error the timestamp    # may be in milliseconds, try `ts /= 1000` in that case
+    y[i] = datetime.utcfromtimestamp(y[i]).strftime('%Y-%m-%d %H:%M:%S')
+print(y)
+#Counting number of users discovered between a timestamp
+tsb = input("Enter the start date in yyyy-mm-dd hh:mm:ss")
+tse = input("Enter the end date in yyyy-mm-dd hh:mm:ss")
+X = pixel_shopclues.iloc[:,20]
+X = list(X)
+t=0
+f=0
+for i in range(len(X)):
+    if((int(y[i][:4]) <= int(tse[:4])) and (int(y[i][5:7]) <= int(tse[5:7])) and (int(y[i][8:10]) <= int(tse[8:10])) and (int(y[i][11:13]) <= int(tse[11:13])) and (int(y[i][14:16]) <= int(tse[14:16])) and (int(y[i][17:19]) <= int(tse[17:19]))):
+        if(X[i]==True):
+            t+=1
+        else:
+            f+=1
+print("Number of new users is between {} and {} is {}" .format(tsb,tse,f))
+#Visualising
+x = np.arange(2)
+usersDiscovered = [t,f]
+fig, ax = plt.subplots()
+plt.bar(x, money)
+plt.xticks(x, ('Old Users', 'New Users'))
+plt.title('Users from {} to {}'.format(tsb,tse))
+plt.show()
+
+# VISUALISATION 5
+df = capacity[['CID','Na','Ns']]
+df = pd.DataFrame(df)
+x=0
+te=[]
+vacant=[]
+complete = []
+for index,row in df.iterrows():
+    for j in row:
+        if not(x==0):
+            te.append(j)
+        else:
+            c = j
+        x+=1
+    x=0 
+   diff = te[1]-te[0]
+    if(diff!=0):
+        te.append(c)
+        vacant.append(te)
+    else:        te.append(c)
+        complete.append(te)
+    te=[]
+print(len(vacant),len(complete))
+# Visualising
+x = np.arange(2)
+servedVsAvailable = [len(vacant),len(complete)]
+fig, ax = plt.subplots()
+plt.bar(x,servedVsAvailable)
+plt.xticks(x, ('Served Completely', 'Not Served Completely'))
+plt.title('Number of Categories which served Native ADs in all the slots available to it')
+plt.show()
