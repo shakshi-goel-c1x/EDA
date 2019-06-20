@@ -1,5 +1,6 @@
 # EDA
 EDA on the SOKA logs
+
 The assignment is to perform Exploratory Data Analysis on the datasets where data is analyzed to summarize the main characteristics of the datasets. Steps involved in an EDA are as follows:
   1) Look at the structure of the data
   2) Pose an initial question that the data could answer 
