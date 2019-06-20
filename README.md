@@ -10,9 +10,26 @@ The assignment is to perform Exploratory Data Analysis on the datasets where dat
 
 
 ## Step 1 Importing the packages
-Packages like pandas, numpy, matplotlib, seaborn are imported
+Packages like pandas, numpy, matplotlib, seaborn, pandas_profiling are imported
 
 ## Step 2 Reading the datasets
 Using the read_csv of the pandas library, the different datasets are read
 
 ## Step 3 Basic Look at the dataset
+Different functions are used as follows:
+  1) shape : Returns a tuple object with the number of rows and the number of columns
+  2) list : Returns a list with the different column/variable names as strings
+  3) head 
+  4) tail
+  
+## Step 4 Summarization of the individual variables
+1)MEASURES OF CENTRAL DEPENDENCY
+  a) Mean
+  b) Mode
+  c) Median
+2)MEASURES OF DISPERSION
+  a) Standard Deviation
+  b) Range
+  c) Interquartile Range
+
+Using the function describe, we can get all the above measure
