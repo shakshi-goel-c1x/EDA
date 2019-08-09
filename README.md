@@ -40,3 +40,11 @@ The nunique function can be used on the dataset which returns the number of uniq
 ## Data Cleaning
 Data cleaning is the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset and refers to identifying incomplete, incorrect, inaccurate or irrelevant parts of the data and then replacing, modifying, or deleting the dirty or coarse data.
 ## Step 6 Checking for null values
+
+## Step 7 Removing irrelevant Data
+
+## Step 8 Processing the Data
+
+## Step 9 Visualising the Data
+
+## Step 10 Extracting meaningful insights
